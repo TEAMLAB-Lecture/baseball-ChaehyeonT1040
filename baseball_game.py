@@ -34,7 +34,7 @@ def is_digit(user_input_number):
     result = None
 
     for i in user_input_number:
-        if i.isdigit() != 0 :
+        if i.isdigit() == False :
             result = False
     result = True
     # ==================================

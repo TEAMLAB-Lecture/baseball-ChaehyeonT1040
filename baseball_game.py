@@ -278,7 +278,6 @@ def is_no(one_more_input):
     # ==================================
     return result
 
-
 def main():
     print("Play Baseball")
     user_input = 999
@@ -294,11 +293,18 @@ def main():
         if user_input == random_number: #정답 맞춘경우
             print(f'Strikes : 3 , Balls : 0')
             ans = input('You win, one more(Y/N) ?')
-            if ans == 'N' : break
-            else:
+
+            while is_no(ans) != True and is_yes(ans) != True: #올바르게 입력할 때 까지
+                print('Wrong Input, Input again')
+                ans = input('You win, one more(Y/N) ?')
+
+            if is_no(ans) : break #N일 때 
+            elif is_yes(ans): # Y일 때
                 random_number = str(get_not_duplicated_three_digit_number())
                 print("Random Number is : ", random_number)
                 continue
+
+
         if user_input == '0' : break #그냥 종료조건
 
         if is_validated_number(user_input) == False: #입력값이 이상할 때
